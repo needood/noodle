@@ -1,9 +1,10 @@
 var Noodle = require('./core');
-Noodle.setAccessor('addEventListener',function(){
+Noodle.setAccessor('addEventListener',function(eventType,fn,options){
     var args = arguments;
     this.forEach(function(item){
         item.addEventListener.apply(item,args);
     });
+    return fn;
 });
 Noodle.setAccessor('on',function(eventType, elementQuerySelector, fn,options){
     var eventCb = function(event){

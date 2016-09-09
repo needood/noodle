@@ -23,7 +23,7 @@
         }).lastReturn(function(value){
             console.log(value, this);
             //this.$removeEventListener("click",value);
-        }).$append(document.createElement("li")).$querySelector("li").lastReturn(function(value){console.log(this)}).$setClass("abc def").$removeClass("abc").$addClass("g").$hasClass("g").lastReturn(function(value){console.log(value)});
+        }).$append(document.createElement("li")).$querySelector("li").$setClass("abc def").$removeClass("abc").$addClass("g").$hasClass("g").lastReturn(function(value){console.log(value)});
     </script>
 </body>
 
