@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <script src="./eventListener.polyfill.min.js"></script>
 </head>
 
 <body>
@@ -15,7 +16,7 @@
         <li>5</li>
         <li>6</li>
     </ul>
-    <script src="./dist/bundle.js"></script>
+    <script src="../dist/bundle.js"></script>
     <script>
         query2 = Noodle("ul").$on("click", "li", function(e){
             console.log(e, e.target, this)
