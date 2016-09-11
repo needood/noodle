@@ -15,6 +15,13 @@ Noodle.setAccessor("hasClass",function(name){
         return false;
     }
 });
+Noodle.setAccessor("getClass",function(){
+    if(this.length!==0){
+        return get(this[0]);
+    }else{
+        return "";
+    }
+});
 Noodle.setAccessor("removeClass",function(name){
     this.forEach(function(item){
         remove(item,name);
@@ -32,6 +39,9 @@ Noodle.setAccessor("addClass",function(name){
 function set(elem,name) {
     elem.className = name;
     return elem;
+}
+function get(elem) {
+    return elem.className;
 }
 
 function has(elem, name){

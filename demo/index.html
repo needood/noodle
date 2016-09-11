@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <ul>
+    <ul test="test">
         <li>1</li>
         <li>2</li>
         <li>3</li>
@@ -18,7 +18,7 @@
     <script src="./eventListener.polyfill.min.js"></script>
     <script src="../dist/bundle.js"></script>
     <script>
-        query = Noodle(document,"li").lastReturn(function(value){console.log("query1",this)});
+        query = Noodle(document,"ul").$getAttribute("test").lastReturn(function(value){console.log("ul attr:",value,this)});
         query2 = Noodle("ul").$on("click", "li", function(e){
             console.log(e, e.target, this)
         }).lastReturn(function(value){
