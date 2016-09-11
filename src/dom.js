@@ -1,7 +1,15 @@
+function strToDom(html) {
+    var el = document.createElement('div');
+    el.innerHTML = html;
+    return el.children[0];
+}
 var Arr = require('array-like');
 var each = require('array-like/utils').each;
 var Noodle = require('./core');
 Noodle.setAccessor("append",function(element){
+    if(typeof element ==="string"){
+        element = strToDom(element);
+    }
     this.forEach(function(item){
         item.appendChild(element);
     });
