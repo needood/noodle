@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <script src="./eventListener.polyfill.min.js"></script>
 </head>
 
 <body>
@@ -16,12 +15,14 @@
         <li>5</li>
         <li>6</li>
     </ul>
+    <script src="./eventListener.polyfill.min.js"></script>
     <script src="../dist/bundle.js"></script>
     <script>
+        query = Noodle(document,"li").lastReturn(function(value){console.log("query1",this)});
         query2 = Noodle("ul").$on("click", "li", function(e){
             console.log(e, e.target, this)
         }).lastReturn(function(value){
-            console.log(value, this);
+            console.log("$on和$addEventListener方法会返回一个function,通过$removeEventListener可以将这个绑定方法删除",value, this);
             //this.$removeEventListener("click",value);
         }).$append(document.createElement("li")).$querySelector("li").$setClass("abc def").$removeClass("abc").$addClass("g").$hasClass("g").lastReturn(function(value){console.log(value)});
     </script>

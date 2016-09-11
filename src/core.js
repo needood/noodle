@@ -2,8 +2,12 @@ var Arr = require('array-like');
 
 function Noodle(el,str){
     if(arguments.length === 1){
-        str = el;
-        el = document;
+        if(typeof el === "string"){
+            str = el;
+            el = document;
+        }else{
+            return Arr(el);
+        }
     }
     var eles = el.querySelectorAll(str);
     return Arr.apply(Arr,eles);
@@ -11,4 +15,4 @@ function Noodle(el,str){
 Noodle.setAccessor = Arr.setAccessor;
 Noodle.setMutator = Arr.setMutator;
 Noodle.setGenerator = Arr.setGenerator;
-module.exports =Noodle;
+module.exports = Noodle;
