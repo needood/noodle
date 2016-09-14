@@ -6,6 +6,17 @@ Noodle.setAccessor('addEventListener',function(eventType,fn,options){
     });
     return fn;
 });
+Noodle.setAccessor('one',function(eventType,fn,options){
+    var eventCb = function(event){
+        fn.call(this, event);
+        this.removeEventListener(eventType,eventCb,options);
+    };
+    var args = arguments;
+    this.forEach(function(item){
+        item.addEventListener.call(item,eventType,eventCb,options);
+    });
+    return eventCb;
+});
 Noodle.setAccessor('on',function(eventType, elementQuerySelector, fn,options){
     var eventCb = function(event){
         var qs = this.querySelectorAll(elementQuerySelector);
