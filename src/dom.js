@@ -36,4 +36,12 @@ Noodle.setAccessor("html",function(string){
         });
     }
 });
-
+Noodle.setAccessor("remove",function(string){
+    this.forEach(function(item){
+        if(item.remove){
+            item.remove();
+        }else{
+            item.parentElement.removeChild(item);
+        }
+    });
+});
