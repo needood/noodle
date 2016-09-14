@@ -12,17 +12,17 @@ Noodle.setAccessor('addEventListener',function(eventType,fn,options){
 });
 function removeEventListener(eventType, fn,options){
     var events = eventType.split(" ");
-    this.forEach(function(item){
-        each(events,function(event){
-            item.removeEventListener(event,fn,options);
-        });
+    var self = this;
+    each(events,function(event){
+        self.removeEventListener(event,fn,options);
     });
 }
 Noodle.setAccessor('removeEventListener',function(eventType, fn,options){
-    removeEventListener.apply(this,arguments);
+    this.forEach(function(item){
+        removeEventListener.apply(item,arguments);
+    });
 });
 Noodle.setMutator('one',function(eventType,fn,options){
-    var events = eventType.split(" ");
     var eventCb = function(event){
         fn.call(this, event);
         removeEventListener.call(this,eventType,eventCb,options);
