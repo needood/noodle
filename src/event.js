@@ -22,10 +22,10 @@ Noodle.setMutator('one',function(eventType,fn,options){
     var events = eventType.split(" ");
     var eventCb = function(event){
         fn.call(this, event);
-        this.removeEventListener(eventType,eventCb,options);
+        this.$removeEventListener(eventType,eventCb,options);
     };
     var args = arguments;
-    this.addEventListener(eventType,eventCb,options);
+    this.$addEventListener(eventType,eventCb,options);
     return eventCb;
 });
 Noodle.setMutator('on',function(eventType, elementQuerySelector, fn,options){
@@ -41,6 +41,6 @@ Noodle.setMutator('on',function(eventType, elementQuerySelector, fn,options){
             }
         }
     };
-    this.addEventListener(eventType,eventCb,options);
+    this.$addEventListener(eventType,eventCb,options);
     return eventCb;
 });
