@@ -10,19 +10,22 @@ Noodle.setAccessor('addEventListener',function(eventType,fn,options){
     });
     return fn;
 });
-Noodle.setAccessor('removeEventListener',function(eventType, fn,options){
+function removeEventListener(eventType, fn,options){
     var events = eventType.split(" ");
     this.forEach(function(item){
         each(events,function(event){
             item.removeEventListener(event,fn,options);
         });
     });
+}
+Noodle.setAccessor('removeEventListener',function(eventType, fn,options){
+    removeEventListener.apply(this,arguments);
 });
 Noodle.setMutator('one',function(eventType,fn,options){
     var events = eventType.split(" ");
     var eventCb = function(event){
         fn.call(this, event);
-        this.$removeEventListener(eventType,eventCb,options);
+        removeEventListener.call(this,eventType,eventCb,options);
     };
     var args = arguments;
     this.$addEventListener(eventType,eventCb,options);
