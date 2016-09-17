@@ -22,7 +22,7 @@ Noodle.setAccessor('removeEventListener',function(eventType, fn,options){
         removeEventListener.apply(item,arguments);
     });
 });
-Noodle.setMutator('one',function(eventType,fn,options){
+Noodle.setMutator('once',function(eventType,fn,options){
     var eventCb = function(event){
         fn.call(this, event);
         removeEventListener.call(this,eventType,eventCb,options);
