@@ -2,7 +2,7 @@
   "name": "noodle",
   "version": "1.0.0",
   "description": "",
-  "main": "gulpfile.js",
+  "main": "src/index.js",
   "devDependencies": {
     "browserify": "^13.1.0",
     "gulp": "^3.9.1",
