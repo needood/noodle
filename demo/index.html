@@ -26,7 +26,7 @@
             console.log("$on和$addEventListener方法会返回一个function,通过$removeEventListener可以将这个绑定方法删除",value, this);
             //this.$removeEventListener("click",value);
         }).$append(document.createElement("li")).$querySelector("li").$setClass("abc def").$removeClass("abc").$addClass("g").$hasClass("g").lastReturn(function(value){console.log(value)});
-query3 = Noodle(document,"#test2").$one("click",function(){alert(0)},false).lastReturn(function(){console.log(this)});
+query3 = Noodle(document,"#test2").$once("click",function(){alert(0)},false).lastReturn(function(){console.log(this)});
 
     </script>
 </body>

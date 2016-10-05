@@ -14,7 +14,7 @@ Noodle.setAccessor("append",function(element){
         item.appendChild(element);
     });
 });
-Noodle.setGenerator("querySelector",function(Selector){
+Noodle.setAccessor("querySelector",function(Selector){
     var array = [];
     this.forEach(function(item){
         each(item.querySelectorAll(Selector),function(item){
@@ -23,8 +23,8 @@ Noodle.setGenerator("querySelector",function(Selector){
             }
         });
     });
-    return Arr.apply(Arr,array);
-});
+    return array;
+},{forceChain:true});
 Noodle.setAccessor("html",function(string){
     if(arguments.length===0){
         if(this.length!==0){
